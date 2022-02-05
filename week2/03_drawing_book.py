@@ -15,14 +15,16 @@ import sys
 #  2. INTEGER p
 #
 
+
 def pageCount(n, p):
     from_first_page = p // 2
     is_even = int(n % 2 == 0)
     from_last_page = (n - p + is_even) // 2
     return min(from_first_page, from_last_page)
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     n = int(input().strip())
 
@@ -30,6 +32,6 @@ if __name__ == '__main__':
 
     result = pageCount(n, p)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()

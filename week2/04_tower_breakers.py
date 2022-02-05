@@ -15,11 +15,13 @@ import sys
 #  2. INTEGER m
 #
 
+
 def towerBreakers(n, m):
     return 2 - (n % 2)
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     t = int(input().strip())
 
@@ -32,6 +34,6 @@ if __name__ == '__main__':
 
         result = towerBreakers(n, m)
 
-        fptr.write(str(result) + '\n')
+        fptr.write(str(result) + "\n")
 
     fptr.close()

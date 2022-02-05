@@ -15,16 +15,18 @@ import sys
 #  2. INTEGER_ARRAY ar
 #
 
+
 def sockMerchant(n, ar):
     counter = dict()
     for element in ar:
         counter.setdefault(element, 0)
         counter[element] += 1
     print(counter)
-    return sum([values//2 for values in counter.values()])
+    return sum([values // 2 for values in counter.values()])
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     n = int(input().strip())
 
@@ -32,6 +34,6 @@ if __name__ == '__main__':
 
     result = sockMerchant(n, ar)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()

@@ -3,6 +3,7 @@ Exercise 1: "Palindrome Index"
 Find in a string the index of the character to remove so that the word becomes a palindrome.
 """
 
+
 def is_palindrome(s):
     return s == list(reversed(s))
 
@@ -20,6 +21,7 @@ def palindromeIndex(s):
         return i
     else:
         return len(s) - i
+
 
 """
 Exercise 2: "Between Two Sets"
@@ -48,6 +50,7 @@ def getTotalX(a, b):
             counter += 1
     return counter
 
+
 """
 Exercise 3: "Anagram"
 Two words are anagrams of one another if their letters can be rearranged to form the other word.
@@ -56,6 +59,7 @@ Given a string, split it into two contiguous substrings of equal length. Determi
 """
 
 from collections import Counter
+
 
 def anagram(s):
     # Idea:
