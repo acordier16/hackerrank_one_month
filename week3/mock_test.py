@@ -93,7 +93,7 @@ def pairs(k, arr):
 """
 Exercise 3: "Big sorting"
 Consider an array of numeric strings where each string is a positive number with
-anywhere from  to  digits. Sort the array's elements in non-decreasing, or
+anywhere from 1 to 1e6 digits. Sort the array's elements in non-decreasing, or
 ascending order of their integer values and return the sorted array.
 """
 
