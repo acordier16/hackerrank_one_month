@@ -19,20 +19,21 @@ import sys
 #
 
 from collections import deque
+
+
 def minimumMoves(grid, startX, startY, goalX, goalY):
     """
     Important: one "move" is not one "hop"...
     In this problem, one "move" here gives you the possibility
     to move until you encounter an obstacle.
     """
-    h = len(grid[0])-1
-    w = len(grid)-1
+    h = len(grid[0]) - 1
+    w = len(grid) - 1
     queue = deque()
     queue.append((startX, startY))
     # This matrix will help us remember which cells
     # we visited and to count the moves as we explore.
-    distances = [[None for j in range(len(grid[0]))] \
-                  for i in range(len(grid))]
+    distances = [[None for j in range(len(grid[0]))] for i in range(len(grid))]
     distances[startX][startY] = 0
     # Our queue is first in, last out (append left, pop right)
     while queue:
@@ -71,8 +72,9 @@ def minimumMoves(grid, startX, startY, goalX, goalY):
                 distances[x][y] = distances[currentX][currentY] + 1
                 queue.appendleft((x, y))
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     n = int(input().strip())
 
@@ -94,7 +96,6 @@ if __name__ == '__main__':
 
     result = minimumMoves(grid, startX, startY, goalX, goalY)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()
-

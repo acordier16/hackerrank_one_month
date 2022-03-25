@@ -15,6 +15,7 @@ import sys
 #  2. 2D_INTEGER_ARRAY queries
 #
 
+
 def arrayManipulation2(n, queries):
     """
     Building the array in a dp-fashion.
@@ -24,10 +25,11 @@ def arrayManipulation2(n, queries):
     for i in range(n):
         for start, end, k in queries:
             # If this indice is not considered by the query, skip the query
-            if not (start <= i+1 and i+1 <= end):
+            if not (start <= i + 1 and i + 1 <= end):
                 continue
             cache[i] += k
     return max(cache)
+
 
 def arrayManipulation(n, queries):
     """
@@ -38,22 +40,23 @@ def arrayManipulation(n, queries):
     Very nice exercise however!
     """
 
-    cache = [0] * (n+1)
+    cache = [0] * (n + 1)
     for start, end, k in queries:
-        cache[start-1] += k
-        cache[end-1 + 1] -= k
+        cache[start - 1] += k
+        cache[end - 1 + 1] -= k
 
     # We estimate the (pseudo-)slope at every value.
     # This is done by cumulating the values of our cache.
     max_slope = 0
     cumulated_sum = 0
-    for i in range(n+1):
+    for i in range(n + 1):
         cumulated_sum += cache[i]
         max_slope = max(max_slope, cumulated_sum)
     return max_slope
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     first_multiple_input = input().rstrip().split()
 
@@ -68,7 +71,6 @@ if __name__ == '__main__':
 
     result = arrayManipulation(n, queries)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()
-

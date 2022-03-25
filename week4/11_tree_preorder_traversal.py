@@ -8,6 +8,7 @@ class Node:
     def __str__(self):
         return str(self.info)
 
+
 class BinarySearchTree:
     def __init__(self):
         self.root = None
@@ -34,6 +35,7 @@ class BinarySearchTree:
                 else:
                     break
 
+
 """
 Node is defined as
 self.left (the left child of the node)
@@ -41,10 +43,17 @@ self.right (the right child of the node)
 self.info (the value of the node)
 """
 
+
 def preOrderRecursive(node, s):
     if node is None:
         return ""
-    return str(node.info) + " " + preOrderRecursive(node.left, s) + preOrderRecursive(node.right, s)
+    return (
+        str(node.info)
+        + " "
+        + preOrderRecursive(node.left, s)
+        + preOrderRecursive(node.right, s)
+    )
+
 
 def preOrderOld(root):
     """
@@ -53,7 +62,10 @@ def preOrderOld(root):
     s = ""
     print(preOrderRecursive(root, s))
 
+
 from collections import deque
+
+
 def preOrder(root):
     """
     Better: use a queue or stack.

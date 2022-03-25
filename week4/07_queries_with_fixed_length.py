@@ -26,6 +26,7 @@ import sys
 
 from collections import deque
 
+
 def add_to_deque(arr, i, dq):
     """
     Adds element indice i to dq.
@@ -45,6 +46,7 @@ def add_to_deque(arr, i, dq):
     dq.append(i)
     return
 
+
 def solve(arr, queries):
     n = len(arr)
     results = []
@@ -56,9 +58,9 @@ def solve(arr, queries):
             add_to_deque(arr, i, dq)
         maxes.append(arr[dq[0]])
         # Slide the "window queue" starting from indice 1
-        for i in range(1, n-d+1):
+        for i in range(1, n - d + 1):
             # Add new element on the right i+d-1
-            add_to_deque(arr, i+d-1, dq)
+            add_to_deque(arr, i + d - 1, dq)
             # Remove max elements with indice < i ("out of window on the left")
             while dq and dq[0] < i:
                 dq.popleft()
@@ -68,8 +70,8 @@ def solve(arr, queries):
     return results
 
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     first_multiple_input = input().rstrip().split()
 
@@ -87,8 +89,7 @@ if __name__ == '__main__':
 
     result = solve(arr, queries)
 
-    fptr.write('\n'.join(map(str, result)))
-    fptr.write('\n')
+    fptr.write("\n".join(map(str, result)))
+    fptr.write("\n")
 
     fptr.close()
-

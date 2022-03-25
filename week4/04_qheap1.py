@@ -9,7 +9,7 @@ import os
 # Hence we rely on an additional hashtable (set data structure in python)
 # for removing these specific element when printing the minimum.
 
-fptr = open(os.environ['OUTPUT_PATH'], 'w')
+fptr = open(os.environ["OUTPUT_PATH"], "w")
 
 nb_queries = int(input().rstrip())
 
@@ -30,7 +30,6 @@ for i in range(nb_queries):
     else:
         while A[0] not in A_set:
             heappop(A)
-        fptr.write(str(A[0]) + '\n')
+        fptr.write(str(A[0]) + "\n")
 
 fptr.close()
-

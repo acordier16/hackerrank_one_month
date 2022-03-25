@@ -15,6 +15,7 @@ import sys
 #  2. INTEGER k
 #
 
+
 def hackerlandRadioTransmitters2(x, k):
     # First we sort all house coordinates
     x.sort()
@@ -34,6 +35,7 @@ def hackerlandRadioTransmitters2(x, k):
             max_reach = x[i] + k
     return antennas
 
+
 def hackerlandRadioTransmitters(x, k):
     """
     This one is easier to understand
@@ -44,7 +46,7 @@ def hackerlandRadioTransmitters(x, k):
     n = len(x)
     i = 0
     while i < n:
-        antennas += 1 # We add the antenna "in advance"
+        antennas += 1  # We add the antenna "in advance"
 
         # Move furthest to the right until we are out of reach
         reach = x[i] + k
@@ -60,8 +62,9 @@ def hackerlandRadioTransmitters(x, k):
             i += 1
     return antennas
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     first_multiple_input = input().rstrip().split()
 
@@ -73,7 +76,6 @@ if __name__ == '__main__':
 
     result = hackerlandRadioTransmitters(x, k)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()
-

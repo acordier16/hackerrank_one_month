@@ -16,6 +16,7 @@ import sys
 #  3. INTEGER_ARRAY h3
 #
 
+
 def equalStacks(h1, h2, h3):
     s1 = sum(h1)
     s2 = sum(h2)
@@ -32,8 +33,9 @@ def equalStacks(h1, h2, h3):
             s3 -= h3.pop(0)
     return s1
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     first_multiple_input = input().rstrip().split()
 
@@ -51,6 +53,6 @@ if __name__ == '__main__':
 
     result = equalStacks(h1, h2, h3)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()

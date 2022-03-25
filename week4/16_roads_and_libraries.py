@@ -17,15 +17,20 @@ import sys
 #  4. 2D_INTEGER_ARRAY cities
 #
 
+
 class Node:
     def __init__(self, number, neighbors=None):
         self.number = number
         self.neighbors = []
         self.visited = False
+
     def add_neighbor(self, node):
         self.neighbors.append(node)
 
+
 from collections import deque
+
+
 def roadsAndLibraries(n, c_lib, c_road, cities):
     """
     We can think of two extreme cases which are actually the only cases.
@@ -39,13 +44,13 @@ def roadsAndLibraries(n, c_lib, c_road, cities):
     """
     # The easy case
     if c_lib <= c_road:
-        return n*c_lib
+        return n * c_lib
 
     # We build the graph
-    nodes = [Node(i) for i in range(1, n+1)]
+    nodes = [Node(i) for i in range(1, n + 1)]
     for a, b in cities:
-        nodes[a-1].add_neighbor(nodes[b-1])
-        nodes[b-1].add_neighbor(nodes[a-1])
+        nodes[a - 1].add_neighbor(nodes[b - 1])
+        nodes[b - 1].add_neighbor(nodes[a - 1])
 
     components = []
     for i in range(n):
@@ -54,8 +59,8 @@ def roadsAndLibraries(n, c_lib, c_road, cities):
             continue
         # Else we start a new queue for a new component, starting at nodes[i]
         queue = deque([nodes[i]])
-        nb_cities = 0 # Number of cities in the component
-        nb_roads = 0 # Number of roads to build in the component
+        nb_cities = 0  # Number of cities in the component
+        nb_roads = 0  # Number of roads to build in the component
         while queue:
             node = queue.pop()
             # We visit the node
@@ -79,11 +84,12 @@ def roadsAndLibraries(n, c_lib, c_road, cities):
     minimum_price = 0
     for nb_roads, nb_cities in components:
         # We build nb_roads, and 1 library for the component
-        minimum_price += c_road*nb_roads + c_lib*1
+        minimum_price += c_road * nb_roads + c_lib * 1
     return minimum_price
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     q = int(input().strip())
 
@@ -105,7 +111,6 @@ if __name__ == '__main__':
 
         result = roadsAndLibraries(n, c_lib, c_road, cities)
 
-        fptr.write(str(result) + '\n')
+        fptr.write(str(result) + "\n")
 
     fptr.close()
-

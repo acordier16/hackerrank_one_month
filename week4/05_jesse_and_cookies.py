@@ -16,6 +16,8 @@ import sys
 #
 
 from heapq import heapify, heappop, heappush
+
+
 def cookies(k, A):
     """
     To avoid sorting or inserting in a sorted list (with bisect.insort()),
@@ -31,20 +33,21 @@ def cookies(k, A):
     This is better than sorting n times (sort algorithms vary from O(n) in best cases to O(n*log(n)) or even O(n^2) in worst cases)
     """
     counter = 0
-    heapify(A) # A[0] will now always return the smallest item
-               # The tree is built in linear time
+    heapify(A)  # A[0] will now always return the smallest item
+    # The tree is built in linear time
     while A[0] < k:
         if len(A) == 1:
             return -1
         first_smallest = heappop(A)
         second_smallest = heappop(A)
         # This pushes and maintain the order of the tree invariant
-        heappush(A, first_smallest + 2*second_smallest)
+        heappush(A, first_smallest + 2 * second_smallest)
         counter += 1
     return counter
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     first_multiple_input = input().rstrip().split()
 
@@ -56,7 +59,6 @@ if __name__ == '__main__':
 
     result = cookies(k, A)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()
-
